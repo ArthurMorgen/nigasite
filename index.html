@@ -1,8 +1,91 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    <h1>testniga</h1>
-  </body>
-  <script>
-    alert('NIGGGA');
-  </script>
+    <body style="background-color: grey;">
+        <table high="400px;" style="width: 100%;">
+            <tr>
+                <td><img width="300" style="padding-left: 100px;" src="КАРТИНКАКАРТИНКАКАРИКПКАКП"></td>
+                <td>
+                    <b id="nickname">Вы</b><br>
+                    HP:<br>
+                    <progress id="hp" value="100"></progress>
+                </td>
+                <td>
+                    <form>
+                        Куда бить: <br>
+                        <input type="radio" name="myradios1" value="1">Голова<br>
+                        <input type="radio" name="myradios1" value="2">Тело<br>
+                        <input type="radio" name="myradios1" value="3">Ноги<br>
+                        <input type="button" value="Выбрать" onclick="GO()">
+                    </form>
+                </td>
+                <td>
+                    <form>
+                        Защита: <br>
+                        <input type="radio" name="myradios2" value="1">Голова<br>
+                        <input type="radio" name="myradios2" value="2">Тело<br>
+                        <input type="radio" name="myradios2" value="3">Ноги<br>
+                        <input type="button" value="Выбрать">
+                    </form>
+                </td>
+                <td>
+                    <b id="nickname1">лох</b><br>
+                    HP:<br>
+                    <progress id="hp1" value="100"></progress>
+                </td>
+                <td><img width="300" src="КАРТИНКАКАРТИНКАКАРИКПКАКП"></td>
+            </tr>
+        </table>
+    </body>
 </html>
+<script>
+    var pls=document.getElementById("hp1")
+    pls.max=100;
+    
+
+
+
+    let namee1=prompt();
+    let player=document.getElementById("nickname")
+    player.innerText="Имя: " +namee1;
+    her={
+        namee:"",
+        health:100,
+        armor:20,
+        attack:20,
+    }
+    her.namee=namee1;
+
+
+    let player2=document.getElementById("nickname1")
+    lox={
+        name:"Враг",
+        health:100,
+        armor:20,
+        attack:20,
+    }
+    player2.innerText="Имя: " + lox.name;
+    var currentV=0;
+    function rand(max){
+            return Math.floor(Math.random()*max+1);
+        }
+    function GO(){
+        const radiobutts=document.querySelectorAll('input[name="myradios1"]')
+        let selectedR;
+        for (const butt of radiobutts){
+            if (butt.checked){
+                selectedR=butt.value;
+                break;
+            }
+            currentV=selectedR;
+        }
+        za=rand(3)
+            console.log(selectedR, za)
+        if (selectedR !== za){
+            vr=lox.armor-rand(10);
+            vr=vr-her.attack;
+            lox.health=lox.health+vr;
+            console.log(lox.health);
+       }
+        pls.value=lox.health;
+    }
+</script>
