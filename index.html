@@ -28,13 +28,6 @@ body{
                     </form>
                 </td>
                 <td class="vrag">
-                    <form>
-                        Защита: <br>
-                        <input type="radio" name="myradios2" value="1">Голова<br>
-                        <input type="radio" name="myradios2" value="2">Тело<br>
-                        <input type="radio" name="myradios2" value="3">Ноги<br>
-                        <input type="button" value="Выбрать"  onclick="GO()">
-                    </form>
                 </td>
                 <td>
                     <b id="nickname1">лох</b><br>
@@ -50,8 +43,8 @@ body{
     var pls=document.getElementById("hp1")
     pls.max=100;
     
-
-
+    var pls2=document.getElementById("hp")
+    pls2.max = 100;
 
     let namee1=prompt();
     let player=document.getElementById("nickname")
@@ -97,5 +90,12 @@ body{
             
        }
         pls.value=lox.health;
+        vr1ud = rand(2)
+        if(vr1ud==1){
+            her.health-=rand(30)
+        }
+        pls2.value=her.health;
+        console.log("igrok", her.health)
+    
     }
 </script>
